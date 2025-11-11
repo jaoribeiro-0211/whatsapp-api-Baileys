@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  whatsapp-api:
+    build: .
+    container_name: whatsapp-api
+    ports:
+      - "${PORT:-3001}:3001"
+    environment:
+      - PORT=${PORT:-3001}
+      - CORS_ORIGINS=${CORS_ORIGINS:-http://localhost:3000,http://localhost:3002}
+      - AUTH_STATE_DIR=${AUTH_STATE_DIR:-auth_info_baileys}
+      - DELAY_SECONDS=${DELAY_SECONDS:-3}
+      - NODE_ENV=${NODE_ENV:-production}
+    volumes:
+      - ./auth_info_baileys:/app/auth_info_baileys
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "--spider", "-q", "http://localhost:3001/status"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+

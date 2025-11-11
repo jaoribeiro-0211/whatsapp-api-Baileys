@@ -2,7 +2,34 @@
 
 > **🤖 API moderna para envio de mensagens WhatsApp em massa via CSV**
 
-Uma API robusta e completa para automatizar o envio de mensagens personalizadas do WhatsApp a partir de dados em arquivos CSV. Desenvolvida com Node.js, Express e WhatsApp Web.js, oferece funcionalidades avançadas como monitoramento em tempo real, gestão de sessões e interface web integrada.
+Uma API robusta e completa para automatizar o envio de mensagens personalizadas do WhatsApp a partir de dados em arquivos CSV. Desenvolvida com Node.js, Express e Baileys (WhatsApp Web), oferece funcionalidades avançadas como monitoramento em tempo real, gestão de sessões e interface web integrada.
+
+## 📚 Documentação
+
+- **[📖 SETUP.md](./SETUP.md)** - Guia completo para rodar localmente
+- **[🚀 DEPLOYMENT.md](./DEPLOYMENT.md)** - Guia de deploy para produção
+- **[📡 API_REFERENCE.md](./API_REFERENCE.md)** - Referência completa da API
+
+---
+
+## ⚡ Início Rápido
+
+```bash
+# 1. Clone o repositório
+git clone https://github.com/seu-usuario/whatsapp-disparo.git
+cd whatsapp-disparo
+
+# 2. Instale as dependências
+npm install
+
+# 3. Execute em modo desenvolvimento
+npm run dev
+
+# 4. Acesse e escaneie o QR Code
+# http://localhost:3001/qr-page
+```
+
+Para instruções detalhadas, veja **[SETUP.md](./SETUP.md)**
 
 ## ✨ Funcionalidades
 
@@ -38,37 +65,46 @@ Uma API robusta e completa para automatizar o envio de mensagens personalizadas 
 
 ## 🛠️ Tecnologias
 
-- **Backend**: Node.js + Express
-- **WhatsApp**: whatsapp-web.js
+- **Backend**: Node.js + TypeScript + Express
+- **WhatsApp**: @whiskeysockets/baileys (WhatsApp Web API)
 - **Real-time**: Socket.io
 - **Upload**: Multer
 - **CSV**: csv-parser
-- **Frontend**: HTML5 + JavaScript (Vanilla)
+- **Logs**: Pino
+- **Environment**: dotenv
 
 ## 📋 Requisitos
 
-- Node.js (v16 ou superior)
-- NPM ou Yarn
-- Google Chrome/Chromium (para Puppeteer)
+- Node.js 16+ (recomendado: v20 LTS)
+- npm ou yarn
 - WhatsApp ativo no celular
 
-## 🚀 Instalação
+## 🚀 Instalação e Uso
+
+### Desenvolvimento Local
 
 ```bash
-# Clone o repositório
-git clone <repo-url>
-cd whatsapp-bot-api
-
-# Instale as dependências
+# 1. Instale as dependências
 npm install
 
-# Inicie o servidor
-npm start
+# 2. Execute o servidor (modo watch)
+npm run dev
 
-# Ou use os comandos alternativos:
-npm run clean    # Limpa sessão do WhatsApp
-npm run restart  # Limpa sessão e reinicia
+# 3. Acesse para conectar WhatsApp
+http://localhost:3001/qr-page
 ```
+
+### Produção
+
+```bash
+# 1. Build do TypeScript
+npm run build
+
+# 2. Inicie o servidor
+npm start
+```
+
+📖 **Guia detalhado**: [SETUP.md](./SETUP.md)
 
 ## 🎯 Como Usar
 
